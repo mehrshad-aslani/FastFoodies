@@ -16,7 +16,7 @@ function HeaderNavItems(props) {
 
 	if (props.type === "vertical") {
 		UlStyle =
-			"hidden justify-between items-center w-[40%] lg:flex lg:flex-row";
+			"hidden justify-between items-center gap-10 lg:flex lg:flex-row";
 	} else if (props.type === "horizontal") {
 		UlStyle = "flex flex-col gap-y-5 mt-5";
 	} else {
@@ -26,13 +26,15 @@ function HeaderNavItems(props) {
 	return (
 		<ul className={`${UlStyle} `}>
 			{NavItems.map((e) => (
-				<Link
-					href={e.link}
-					className=" cursor-pointer text-xl capitalize font-semibold transition-all duration-500 hover:scale-110 hover:text-yellow-600 text-shadow-2xl px-4 py-4 "
-					key={e.id}
-				>
-					{e.title}
-				</Link>
+				<li key={e.id} className="">
+					<Link
+						href={e.link}
+						className=" cursor-pointer text-lg capitalize font-semibold transition-all duration-500 hover:-translate-y-0.5 hover:text-orange-400 text-shadow-2xl px-3 py-2 relative group "
+					>
+						{e.title}
+						<span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-orange-500 transition-all duration-500 group-hover:w-full" />
+					</Link>
+				</li>
 			))}
 		</ul>
 	);

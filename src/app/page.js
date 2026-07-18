@@ -7,16 +7,16 @@ import JoinOurCommunityBox from "@/Components/HomePage/Main/JoinOurCommunityBox"
 import Footer from "@/Components/HomePage/Footer/Footer";
 
 export default function Home() {
-	return (
-		<div className="min-h-screen w-full bg-zinc-950 text-white overflow-hidden ">
-			{/* یک دیو جدید با پوزیشن ابسلوت بهش اضافه شد تا بتوان این دو المان زیر را با هم هماهنگ کرد */}
-			<Header />
-			{/* <SideBar /> */}
-			<HeaderInfo />
-			<PopularSection />
-			<JoinOurCommunityBox />
-			<ChooseSection />
-			<Footer />
-		</div>
-	);
+    return (
+        <div className="min-h-screen w-full overflow-hidden bg-zinc-950 text-white">
+            {/* یک دیو جدید با پوزیشن ابسلوت بهش اضافه شد تا بتوان این دو المان زیر را با هم هماهنگ کرد */}
+            <Header />
+            {/* <SideBar /> */}
+            <HeaderInfo />
+            <PopularSection />
+            <JoinOurCommunityBox />
+            <ChooseSection />
+            <Footer />
+        </div>
+    );
 }

@@ -1,13 +1,13 @@
 function Button({ children, className }) {
-	return (
-		<div
-			role="button"
-			className={`relative overflow-hidden bg-orange-500 px-6 py-4 text-white rounded-2xl cursor-pointer transition-all duration-300 hover:scale-105 group max-w-fit ${className} `}
-		>
-			<span className="capitalize text-xl z-20 relative">{children}</span>
-			<span className="absolute inset-0 bg-orange-600 rounded-2xl transition-transform duration-500 -z-10 -translate-x-full group-hover:translate-x-0 "></span>
-		</div>
-	);
+    return (
+        <div
+            role="button"
+            className={`group relative max-w-fit cursor-pointer overflow-hidden rounded-2xl px-6 py-4 transition-all duration-300 hover:scale-105 ${className} `}
+        >
+            <span className="relative z-20 text-xl capitalize">{children}</span>
+            <span className="absolute inset-0 -z-10 origin-left scale-x-0 bg-orange-600 transition-transform duration-300 group-hover:scale-x-100"></span>
+        </div>
+    );
 }
 
 export default Button;
