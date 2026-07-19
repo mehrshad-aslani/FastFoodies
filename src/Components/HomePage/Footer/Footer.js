@@ -1,43 +1,145 @@
 import Link from "next/link";
+import { FaGithub, FaInstagram, FaLinkedin, FaTelegram } from "react-icons/fa";
+
+const footerSections = [
+    {
+        id: 1,
+        title: "Explore",
+        links: [
+            {
+                id: 1,
+                title: "Recipes",
+                href: "/Recipes",
+            },
+            {
+                id: 2,
+                title: "Popular",
+                href: "/Recipes",
+            },
+            {
+                id: 3,
+                title: "Categories",
+                href: "/Categories",
+            },
+        ],
+    },
+
+    {
+        id: 2,
+        title: "Company",
+        links: [
+            {
+                id: 1,
+                title: "Home",
+                href: "/",
+            },
+            {
+                id: 2,
+                title: "About Us",
+                href: "/About",
+            },
+            {
+                id: 3,
+                title: "Contact",
+                href: "/Contact",
+            },
+        ],
+    },
+];
+
+const socials = [
+    {
+        id: 1,
+        icon: FaGithub,
+        href: "https://github.com/mehrshad-aslani",
+    },
+    {
+        id: 2,
+        icon: FaInstagram,
+        href: "https://instagram.com/",
+    },
+    {
+        id: 3,
+        icon: FaLinkedin,
+        href: "www.linkedin.com/in/mehrshadaslani",
+    },
+    {
+        id: 4,
+        icon: FaTelegram,
+        href: "https://t.me/",
+    },
+];
 
 function Footer() {
-	return (
-		<footer className="flex flex-row mx-auto p-12 items-center bg-stone-950 text-gray-300">
-			<div className="flex flex-row gap-x-3">
-				<p>Icon</p>
-				<div className="flex flex-col">
-					<h3>Nextlevel Food</h3>
-					<p>des</p>
-				</div>
-			</div>
-			<div className="flex flex-col gap-y-1 text-xl">
-				<h3>Quick Links</h3>
-				<ul>
-					<li className="transition-all duration-500 hover:scale-110 hover:text-orange-600 text-lg font-extralight">
-						<Link href="/">Home</Link>
-					</li>
-					<li className="transition-all duration-500 hover:scale-110 hover:text-orange-600 text-lg font-extralight">
-						<Link href="/About">About</Link>
-					</li>
-					<li className="transition-all duration-500 hover:scale-110 hover:text-orange-600 text-lg font-extralight">
-						<Link href="/Recipes">Recipes</Link>
-					</li>
-					<li className="transition-all duration-500 hover:scale-110 hover:text-orange-600 text-lg font-extralight">
-						<Link href="/Contact">Contact</Link>
-					</li>
-				</ul>
-			</div>
-			<div>
-				<h4>Follow Us</h4>
-				<ul className="flex flex-row gap-x-2">
-					<li>Icon</li>
-					<li>Icon</li>
-					<li>Icon</li>
-					<li>Icon</li>
-				</ul>
-			</div>
-		</footer>
-	);
+    return (
+        <footer className="mt-32 border-t border-zinc-800 bg-zinc-950">
+            <div className="mx-auto grid w-[80%] grid-cols-3 gap-20 py-16">
+                {/* Logo */}
+
+                <div>
+                    <h2 className="text-3xl font-black">
+                        Fast
+                        <span className="text-orange-500">Foodies</span>
+                    </h2>
+
+                    <p className="mt-5 leading-7 text-zinc-400">
+                        Discover delicious recipes, cook with confidence and
+                        share unforgettable meals with everyone.
+                    </p>
+                </div>
+
+                {/* Links */}
+
+                {footerSections.map((section) => (
+                    <div key={section.id}>
+                        <h3 className="mb-5 text-xl font-bold">
+                            {section.title}
+                        </h3>
+
+                        <ul className="space-y-3">
+                            {section.links.map((link) => (
+                                <li key={link.id}>
+                                    <Link
+                                        href={link.href}
+                                        className="text-zinc-400 transition-all duration-300 hover:translate-x-1 hover:text-orange-500"
+                                    >
+                                        {link.title}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
+            </div>
+
+            {/* Bottom */}
+
+            <div className="border-t border-zinc-800">
+                <div className="mx-auto flex w-[80%] items-center justify-between py-8">
+                    <p className="text-sm text-zinc-500">
+                        © 2025 FastFoodies. All rights reserved.
+                    </p>
+
+                    <div className="flex items-center gap-4">
+                        {socials.map((social) => {
+                            const Icon = social.icon;
+
+                            return (
+                                <Link
+                                    key={social.id}
+                                    href={social.href}
+                                    target="_blank"
+                                    className="rounded-full border border-zinc-700 p-3 text-lg text-zinc-400 transition-all duration-300 hover:border-orange-500 hover:bg-orange-500 hover:text-white"
+                                >
+                                    <Icon />
+                                </Link>
+                            );
+                        })}
+                    </div>
+                </div>
+            </div>
+        </footer>
+    );
 }
 
 export default Footer;

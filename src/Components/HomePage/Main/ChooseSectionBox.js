@@ -1,18 +1,24 @@
-function ChooseSectionBox() {
-	return (
-		<div className=" rounded-2xl shadow-lg bg-white/30 w-[380px]  max-h-[400px] flex flex-col justify-between p-5 transition-all duration-500 hover:scale-110">
-			<div className="w-16 h-16 rounded-2xl border border-white/40 flex justify-center items-center text-2xl">
-				😂
-			</div>
-			<h3 className="text-2xl capitalize my-5 text-shadow-2xs">
-				title of this
-			</h3>
-			<p className="text-lg">
-				description lorem 25 jshdag ldj4euedn ;asdfh a;sljedih
-				lknshkjadhiuaw kjhsajk dhak kjlshdj kahd
-			</p>
-		</div>
-	);
+function ChooseSectionBox({ feature }) {
+    const Icon = feature.icon;
+
+    return (
+        <div className="group rounded-3xl border border-zinc-800 bg-zinc-900 p-8 transition-all duration-500 hover:-translate-y-2 hover:border-orange-500/40 hover:shadow-[0_0_35px_rgba(249,115,22,.12)]">
+            {/* Icon */}
+            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-orange-500/10 text-orange-400 transition-all duration-500 group-hover:bg-orange-500 group-hover:text-white">
+                <Icon className="text-4xl" />
+            </div>
+
+            {/* Title */}
+            <h3 className="mt-8 text-2xl font-bold text-white">
+                {feature.title}
+            </h3>
+
+            {/* Description */}
+            <p className="mt-4 leading-7 text-zinc-400">
+                {feature.description}
+            </p>
+        </div>
+    );
 }
 
 export default ChooseSectionBox;

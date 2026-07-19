@@ -1,9 +1,9 @@
 function TitleSections({ children }) {
-	return (
-		<h3 className="text-3xl text-left font-black text-white capitalize my-12">
-			{children}
-		</h3>
-	);
+    return (
+        <h3 className="my-8 text-left text-3xl font-black text-white capitalize">
+            {children}
+        </h3>
+    );
 }
 
 export default TitleSections;
