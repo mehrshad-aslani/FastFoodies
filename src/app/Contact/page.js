@@ -1,5 +1,11 @@
+import Header from "@/Components/ContactUs/Header";
+
 function page() {
-	return <div>Concat</div>;
+    return (
+        <div>
+            <Header />
+        </div>
+    );
 }
 
 export default page;

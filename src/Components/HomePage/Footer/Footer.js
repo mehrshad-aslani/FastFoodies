@@ -72,10 +72,9 @@ const socials = [
 
 function Footer() {
     return (
-        <footer className="mt-32 border-t border-zinc-800 bg-zinc-950">
-            <div className="mx-auto grid w-[80%] grid-cols-3 gap-20 py-16">
+        <footer className="mt-24 border-t border-zinc-800 bg-zinc-950">
+            <div className="mx-auto grid w-[90%] grid-cols-1 gap-10 py-16 sm:w-[85%] md:grid-cols-2 lg:w-[80%] lg:grid-cols-3 lg:gap-20">
                 {/* Logo */}
-
                 <div>
                     <h2 className="text-3xl font-black">
                         Fast
@@ -89,7 +88,6 @@ function Footer() {
                 </div>
 
                 {/* Links */}
-
                 {footerSections.map((section) => (
                     <div key={section.id}>
                         <h3 className="mb-5 text-xl font-bold">
@@ -111,12 +109,10 @@ function Footer() {
                     </div>
                 ))}
             </div>
-
             {/* Bottom */}
-
             <div className="border-t border-zinc-800">
-                <div className="mx-auto flex w-[80%] items-center justify-between py-8">
-                    <p className="text-sm text-zinc-500">
+                <div className="mx-auto flex w-[90%] flex-col items-center justify-between gap-6 py-8 sm:w-[85%] md:flex-row lg:w-[80%]">
+                    <p className="text-center text-sm text-zinc-500 md:text-left">
                         © 2025 FastFoodies. All rights reserved.
                     </p>
 

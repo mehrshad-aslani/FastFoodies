@@ -33,10 +33,10 @@ export const features = [
 
 function ChooseSection() {
     return (
-        <section className="mx-auto my-24 w-[80%]">
+        <section className="mx-auto my-24 w-[90%] sm:w-[85%] lg:w-[80%]">
             <TitleSections>Why Foodies Choose Us</TitleSections>
 
-            <div className="mt-14 grid gap-8 lg:grid-cols-3">
+            <div className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 {features.map((feature) => (
                     <ChooseSectionBox key={feature.id} feature={feature} />
                 ))}

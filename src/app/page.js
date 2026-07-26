@@ -14,7 +14,6 @@ export default function Home() {
             <PopularSection />
             <JoinOurCommunityBox />
             <ChooseSection />
-            <Footer />
         </div>
     );
 }

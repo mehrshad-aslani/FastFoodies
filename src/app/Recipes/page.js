@@ -1,5 +1,11 @@
+import Header from "@/Components/Recipes/Header";
+
 function page() {
-	return <div>Recipes</div>;
+    return (
+        <div>
+            <Header />
+        </div>
+    );
 }
 
 export default page;
