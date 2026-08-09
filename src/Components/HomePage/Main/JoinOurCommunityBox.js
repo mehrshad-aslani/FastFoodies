@@ -27,7 +27,10 @@ function JoinOurCommunityBox() {
                 </div>
 
                 {/* Right */}
-                <Button className="bg-orange-500 px-8 text-white shadow-lg hover:bg-orange-600 hover:shadow-orange-500/30">
+                <Button
+                    link="/Recipes"
+                    className="bg-orange-500 px-8 text-white shadow-lg hover:bg-orange-600 hover:shadow-orange-500/30"
+                >
                     Join Now →
                 </Button>
             </div>

@@ -28,11 +28,17 @@ function Header() {
                 </p>
 
                 <div className="mt-10 flex w-full max-w-md flex-col gap-4 sm:flex-row sm:justify-center">
-                    <Button className="w-full bg-orange-500 text-white shadow-lg transition hover:bg-orange-600 hover:shadow-orange-500/30 sm:w-auto">
+                    <Button
+                        link="/Recipes"
+                        className="w-full bg-orange-500 text-white shadow-lg transition hover:bg-orange-600 hover:shadow-orange-500/30 sm:w-auto"
+                    >
                         Explore Recipes
                     </Button>
 
-                    <Button className="w-full border border-orange-500 bg-transparent text-orange-500 transition hover:bg-orange-500 hover:text-white sm:w-auto">
+                    <Button
+                        link="/Recipes"
+                        className="w-full border border-orange-500 bg-transparent text-orange-500 transition hover:bg-orange-500 hover:text-white sm:w-auto"
+                    >
                         View Recipes
                     </Button>
                 </div>
