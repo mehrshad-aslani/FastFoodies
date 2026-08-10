@@ -4,9 +4,12 @@ import { useState } from "react";
 import Link from "next/link";
 import HamburgerMenu from "../HamburgerMenu";
 import HeaderNavItems from "./HeaderNavItems";
+import { HiShoppingCart } from "react-icons/hi";
+import { useCart } from "@/context/CartContext";
 
 function HeaderNav() {
     const [search, setSearch] = useState("");
+    const { cartItems } = useCart();
 
     return (
         <div className="absolute top-3 z-50 flex w-full items-center justify-between px-5 py-5 sm:px-8 lg:px-20">
@@ -27,13 +30,15 @@ function HeaderNav() {
                     />
                 </form>
 
-                <div className="relative flex cursor-pointer items-center justify-center rounded-2xl bg-gray-600/20 p-2">
-                    <span>😙</span>
-
+                <Link
+                    href="/Cart"
+                    className="relative flex cursor-pointer items-center justify-center rounded-2xl bg-gray-600/20 p-3"
+                >
+                    <HiShoppingCart className="text-2xl text-orange-500" />
                     <div className="absolute -top-4 -right-4 rounded-2xl bg-amber-500 px-3 py-1 text-white">
-                        2
+                        {cartItems.length}
                     </div>
-                </div>
+                </Link>
             </div>
 
             <div className="lg:hidden">

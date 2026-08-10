@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { FaClock, FaStar, FaUsers, FaShoppingCart } from "react-icons/fa";
+import BackButton from "@/Components/Recipes/main/BackButton";
 import { getRecipeBySlug } from "@/services/apiRecipes";
+import AddToCartButton from "@/Components/Recipes/main/AddToCartBTN";
 
 async function RecipePage({ params }) {
     const { pizzaName } = await params;
@@ -13,6 +15,8 @@ async function RecipePage({ params }) {
     return (
         <main className="mt-20 min-h-screen bg-zinc-950 px-5 py-10 text-white">
             <div className="mx-auto max-w-6xl">
+                <BackButton />
+
                 <div className="grid gap-10 lg:grid-cols-2">
                     <div className="overflow-hidden rounded-3xl">
                         <Image
@@ -89,10 +93,10 @@ async function RecipePage({ params }) {
                                 </p>
                             </div>
 
-                            <button className="flex items-center gap-2 rounded-xl bg-orange-500 px-6 py-3 font-semibold transition hover:scale-105 hover:bg-orange-600">
+                            <AddToCartButton recipe={recipe}>
                                 <FaShoppingCart />
                                 Add to Cart
-                            </button>
+                            </AddToCartButton>
                         </div>
                     </div>
                 </div>

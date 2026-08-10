@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { CiHeart } from "react-icons/ci";
 import { HiClock, HiStar } from "react-icons/hi";
 
 function RecipeCard(props) {
@@ -27,12 +26,6 @@ function RecipeCard(props) {
                         className="h-full w-full object-cover"
                     />
 
-                    {/* Difficulty */}
-                    <span className="absolute top-4 left-4 rounded-full bg-orange-500 px-3 py-1 text-xs font-semibold text-white">
-                        Easy
-                    </span>
-
-                    {/* Gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                 </div>
 

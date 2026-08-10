@@ -2,6 +2,7 @@ import Footer from "@/Components/HomePage/Footer/Footer";
 import "../styles/globals.css";
 import HeaderNav from "@/Components/HomePage/Header/HeaderNav";
 import ReactQueryProvider from "@/Providers/ReactQueryProvider";
+import { CartProvider } from "@/context/CartContext";
 
 export const metadata = {
     title: "NextLevel Food",
@@ -16,13 +17,15 @@ export default function RootLayout({ children }) {
         <html lang="en">
             <body className="min-h-screen bg-zinc-950 font-sans text-white">
                 <ReactQueryProvider>
-                    <div className="flex min-h-screen flex-col">
-                        <HeaderNav />
+                    <CartProvider>
+                        <div className="flex min-h-screen flex-col">
+                            <HeaderNav />
 
-                        <main className="flex-1">{children}</main>
+                            <main className="flex-1">{children}</main>
 
-                        <Footer />
-                    </div>
+                            <Footer />
+                        </div>
+                    </CartProvider>
                 </ReactQueryProvider>
             </body>
         </html>
