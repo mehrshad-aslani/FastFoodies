@@ -8,7 +8,7 @@ function page() {
     return (
         <div>
             <Header />
-            <div className="mx-auto flex max-w-[1450px] gap-6 py-8">
+            <div className="mx-auto flex max-w-[1450px] flex-row-reverse gap-6 py-8">
                 <Suspense fallback={<Spinner />}>
                     <ShowingRecipes />
                     <SideBarRecipes />
