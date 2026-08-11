@@ -1,5 +1,6 @@
 "use client";
 import { useSearchParams } from "next/navigation";
+import { useState } from "react";
 
 import { useRecipes } from "@/hooks/useRecipes";
 import Spinner from "@/UI/Spinner";
@@ -13,37 +14,48 @@ function ShowingRecipes() {
     const category = Number(searchParams.get("category")) || null;
     const minTime = Number(searchParams.get("minTime")) || 10;
     const maxTime = Number(searchParams.get("maxTime")) || 120;
+    const [sortType, setSortType] = useState("AtoZ");
 
     const { data, isLoading, error } = useRecipes();
     if (isLoading) return <Spinner />;
     if (error) return <ErrorComponents message={error.message} />;
 
-    const filteredRecipes = data.filter((recipe) => {
-        const matchSearch = recipe.title.toLowerCase().includes(searchValue);
+    const filteredRecipes = data
+        .filter((recipe) => {
+            const matchSearch = recipe.title
+                .toLowerCase()
+                .includes(searchValue);
 
-        const matchCategory =
-            category === null || recipe.category_id === category;
+            const matchCategory =
+                category === null || recipe.category_id === category;
 
-        const matchTime =
-            minTime <= recipe.cook_time && recipe.cook_time <= maxTime;
+            const matchTime =
+                minTime <= recipe.cook_time && recipe.cook_time <= maxTime;
 
-        return matchSearch && matchCategory && matchTime;
-    });
+            return matchSearch && matchCategory && matchTime;
+        })
+        .sort((a, b) => {
+            if (sortType === "AtoZ") {
+                return a.title.localeCompare(b.title);
+            }
+
+            if (sortType === "ZtoA") {
+                return b.title.localeCompare(a.title);
+            }
+
+            if (sortType === "HtoL") {
+                return b.price - a.price;
+            }
+
+            if (sortType === "LtoH") {
+                return a.price - b.price;
+            }
+
+            return 0;
+        });
+
     function handelSelectBox(e) {
-        const selectValue = e.target.value;
-        switch (selectValue) {
-            case "AtoZ":
-                break;
-            case "ZtoA":
-                break;
-            case "HtoL":
-                break;
-            case "AtoZ":
-                break;
-
-            default:
-                break;
-        }
+        setSortType(e.target.value);
     }
 
     return (
