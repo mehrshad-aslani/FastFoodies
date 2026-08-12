@@ -1,39 +1,66 @@
 "use client";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const NavItems = [
-    { id: 1, title: "Home", link: "/" },
-    { id: 2, title: "Recipes", link: "/Recipes" },
-    { id: 3, title: "About", link: "/About" },
-    { id: 4, title: "contact", link: "/Contact" },
+    {
+        id: 1,
+        title: "Home",
+        link: "/",
+    },
+    {
+        id: 2,
+        title: "Recipes",
+        link: "/Recipes",
+    },
+    {
+        id: 3,
+        title: "About",
+        link: "/About",
+    },
+    {
+        id: 4,
+        title: "Contact",
+        link: "/Contact",
+    },
 ];
 
-function HeaderNavItems(props) {
-    const pathName = usePathname();
-    let UlStyle;
+function HeaderNavItems({ type, onNavigate }) {
+    const pathname = usePathname();
 
-    if (props.type === "vertical") {
-        UlStyle =
+    let ulStyle = "";
+
+    if (type === "vertical") {
+        ulStyle =
             "hidden items-center justify-between gap-6 lg:flex lg:flex-row lg:gap-10";
-    } else if (props.type === "horizontal") {
-        UlStyle = "mt-5 flex flex-col gap-y-5";
-    } else {
-        let error = new Error("there is not such type");
-        console.error(error);
+    }
+
+    if (type === "horizontal") {
+        ulStyle = "mt-5 flex flex-col gap-y-5";
     }
 
     return (
-        <ul className={UlStyle}>
-            {NavItems.map((e) => (
-                <li key={e.id}>
+        <ul className={ulStyle}>
+            {NavItems.map((item) => (
+                <li key={item.id}>
                     <Link
-                        href={e.link}
-                        className={`group text-shadow-2xl relative cursor-pointer px-3 py-2 text-base font-semibold capitalize transition-all duration-500 hover:-translate-y-0.5 hover:text-orange-400 lg:text-lg ${pathName === e.link && "text-orange-400"}`}
+                        href={item.link}
+                        onClick={onNavigate}
+                        className={`group relative block cursor-pointer px-3 py-2 text-base font-semibold capitalize transition-all duration-300 hover:-translate-y-0.5 hover:text-orange-400 lg:text-lg ${
+                            pathname === item.link
+                                ? "text-orange-400"
+                                : "text-white"
+                        }`}
                     >
-                        {e.title}
+                        {item.title}
+
                         <span
-                            className={`absolute bottom-0 left-0 h-[2px] w-0 bg-orange-500 transition-all duration-500 group-hover:w-full ${pathName === e.link && "w-full"}`}
+                            className={`absolute bottom-0 left-0 h-[2px] bg-orange-500 transition-all duration-300 ${
+                                pathname === item.link
+                                    ? "w-full"
+                                    : "w-0 group-hover:w-full"
+                            }`}
                         />
                     </Link>
                 </li>
