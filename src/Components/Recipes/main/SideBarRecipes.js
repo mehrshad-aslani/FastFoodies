@@ -41,7 +41,7 @@ function SideBarRecipes() {
     if (RecipesError) return <ErrorComponents message={RecipesError.message} />;
 
     return (
-        <aside className="w-70 shrink-0">
+        <aside className="w-full shrink-0 lg:w-70">
             <div className="rounded-2xl border border-gray-400 bg-gray-500/15">
                 <div className="flex items-center gap-2 p-3">
                     <HiOutlineSquares2X2 className="text-2xl text-orange-500" />

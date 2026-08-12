@@ -59,19 +59,21 @@ function ShowingRecipes() {
     }
 
     return (
-        <div className="flex-1">
+        <div className="min-w-0 flex-1">
             {/* Filter */}
-            <div className="mb-6 flex items-center justify-between">
-                <div className="flex flex-row items-center gap-x-3">
-                    <span className="capitalize">sort by : </span>
+            <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex flex-wrap items-center gap-3">
+                    <span className="capitalize">sort by:</span>
+
                     <select
                         className="w-40 rounded-xl border border-zinc-700 bg-zinc-800 px-4 py-2 text-sm transition hover:border-orange-500 focus:border-orange-500"
                         onChange={handelSelectBox}
+                        value={sortType}
                     >
                         <option value="AtoZ">Name : A - Z</option>
                         <option value="ZtoA">Name : Z - A</option>
                         <option value="HtoL">Price : High To Low</option>
-                        <option value="LtoH">Price : Low TO High</option>
+                        <option value="LtoH">Price : Low To High</option>
                     </select>
                 </div>
                 <div className="flex flex-row items-center gap-x-1.5">
